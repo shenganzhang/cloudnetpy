@@ -126,7 +126,8 @@ def _get_fmcw94_objects(files: list, expected_date: Union[str, None]) -> Tuple[l
             continue
         objects.append(obj)
         valid_files.append(file)
-    objects, valid_files = _remove_files_with_bad_height(objects, valid_files)
+    if len(objects) > 1:
+        objects, valid_files = _remove_files_with_bad_height(objects, valid_files)
     return objects, valid_files
 
 
